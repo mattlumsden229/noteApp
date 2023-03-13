@@ -7,5 +7,14 @@ module.exports = {
         } catch(err){
             console.error(err)
         }
+    },
+    addNote: async (req,res) => {
+        try{
+            await Note.create({title: req.body.title, notes: req.body.notes})
+            console.log('note has been added!')
+            res.redirect('/notes')
+        }catch(err){
+            console.log(err)
+        }
     }
 }
