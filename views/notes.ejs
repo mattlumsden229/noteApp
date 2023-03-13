@@ -21,6 +21,7 @@
                     <li class='' data-id='<%=el._id%>'>
                         <p><%= el.title %></p>
                         <span class='del'> Delete </span>
+                        <button><a href="/notes/display/<%=el._id%>">show notes</a></button>
                     </li>
                     <% }) %>   
             </ul>
@@ -28,7 +29,7 @@
         <div id="note-stuff" class="div-2">
             <form action="/notes/addNote" method="POST" id="note1">
                 <input type="text" name="title" id="title" placeholder="Notes Title">
-                <textarea name="content" id="content" cols="300" rows="10"></textarea>
+                <textarea name="content" id="content" cols="150" rows="10" ></textarea>
             </form>
         </div>
     </section>

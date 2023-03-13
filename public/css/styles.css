@@ -28,7 +28,7 @@ div h1{
 div p{
     font-size: 1.5em;
 }
-div a{
+div .notes-a{
     text-decoration: none;
     color: white;
     background-color: blue;
@@ -36,12 +36,13 @@ div a{
 }
 #main-section{
     display: flex;
+    margin: 20px;
 }
 #main-section .div-1{
     width: 15%;
 }
 #main-section .div-2{
-    width: 85%;
+
 }
 .div-1 h2{
     text-align: center;

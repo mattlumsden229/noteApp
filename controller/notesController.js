@@ -8,9 +8,18 @@ module.exports = {
             console.error(err)
         }
     },
+    display: async (req,res) => {
+        try{
+            console.log(req.params.id)
+            const notes = await Note.findOne({_id: req.params.id})
+            res.render('displayNotes.ejs', {note: notes})
+        } catch(err){
+            console.error(err)
+        }
+    },
     addNote: async (req,res) => {
         try{
-            await Note.create({title: req.body.title, notes: req.body.notes})
+            await Note.create({title: req.body.title, notes: req.body.content})
             console.log('note has been added!')
             res.redirect('/notes')
         }catch(err){
