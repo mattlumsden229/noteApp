@@ -39,10 +39,12 @@ div .notes-a{
     margin: 20px;
 }
 #main-section .div-1{
-    width: 15%;
+    width: 30%;
+    border-right: solid .5px black;
+    height: 100vh;
 }
 #main-section .div-2{
-
+    width: 70%;
 }
 .div-1 h2{
     text-align: center;
@@ -50,4 +52,34 @@ div .notes-a{
 .div-1 li p {
     display: inline;
     margin-right: 15px;
+}
+#note1{
+    display: flex;
+    flex-direction: column;
+}
+input,textarea{
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
+}
+/* nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+#submit{
+    height: 20px;
+    width: 40px;
+    margin: auto 10px;
+}
+#displayTitle{
+    color: white;
+}
+.lol{
+    display: none;
 }
