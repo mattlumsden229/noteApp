@@ -25,10 +25,12 @@ module.exports = {
           if (err) { return next(err) }
           if (!user) {
             req.flash('errors', info)
+            //console.log('cool')
             return res.redirect('/login')
           }
           req.logIn(user, (err) => {
             if (err) { return next(err) }
+            console.log('cool')
             req.flash('success', { msg: 'Success! You are logged in.' })
             res.redirect(req.session.returnTo || '/notes')
           })
@@ -41,6 +43,8 @@ module.exports = {
         }
         res.render('signup.ejs')
       },
+
+
     postSignup: async (req, res, next) => {
         const validationErrors = []
         if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -59,25 +63,31 @@ module.exports = {
           password: req.body.password
         })
       
-       const yay = await User.findOne({$or: [
-          {email: req.body.email},
-          {userName: req.body.userName}
-        ]}, (err, existingUser) => {
-          if (err) { return next(err) }
-          if (existingUser) {
-            req.flash('errors', { msg: 'Account with that email address or username already exists.' })
-            return res.redirect('/signup')
-          }
-        user.save((err) => {
-            if (err) { return next(err) }
-            req.logIn(user, (err) => {
-              if (err) {
-                return next(err)
-              }
-              res.redirect('/notes')
-            })
-          })
-        })
-      }
+        // try{
+           const doesExistEmail = await User.findOne( { email: req.body.email } )
+           const doesExistUsername = await User.findOne( { email: req.body.username } )
+            if(doesExistEmail || doesExistUsername){
+              req.flash("errors", {
+                msg: "Account with that email address or username already exists.",
+              });
+            }
+            user.save()
+            return res.redirect("../notes")
+            // (err, existingUser) => {
+            //   if (err) {
+            //     return next(err);
+            //   }
+            //   if (existingUser) {
+            //     req.flash("errors", {
+            //       msg: "Account with that email address or username already exists.",
+            //     });
+            //     return res.redirect("../signup");
+            //   }
+        // } catch(err){
+        //   console.error(err)
+        // }
+      // } catch(err){
+      //   console.log(err)
+       }
 
 }

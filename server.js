@@ -12,7 +12,8 @@ const main = require('./routes/main')
 const notes = require('./routes/notes')
 const app = express()
 require('dotenv').config({path: './config/.env'})
-
+// Passport config
+require("./config/passport")(passport);
 
 connectDB()
 

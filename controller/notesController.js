@@ -1,6 +1,7 @@
 const Note = require('../model/notes')
 module.exports = {
     mainPage: async (req,res) => {
+        console.log(req.user)
         try{
             const notes = await Note.find()
             res.render('notes.ejs', {note: notes})
@@ -9,6 +10,7 @@ module.exports = {
         }
     },
     display: async (req,res) => {
+        console.log(req.user)
         try{
             console.log(req.params.id)
             const allNotes = await Note.find()
