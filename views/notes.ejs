@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/main.js" defer></script>
+    <title>note taking app</title>
+</head>
+<body>
+    <nav>
+        <span class="edit">Note Taker</span>
+        <button type="submit" form="note1" value="Submit">Submit</button>
+    </nav>
+
+    <section id="main-section">
+        <div class="div-1">
+           <h2>Notes</h2>
+            <ul>
+                <% note.forEach( el => { %>
+                    <li class='' data-id='<%=el._id%>'>
+                        <p><%= el.title %></p>
+                        <span><button><a href="/notes" class='del'> delete</a></button> </span>
+                        <button><a href="/notes/display/<%=el._id%>">show notes</a></button>
+                    </li>
+                    <% }) %>   
+            </ul>
+        </div>
+        <div id="note-stuff" class="div-2">
+            <form action="/notes/addNote" method="POST" id="note1">
+                <input type="text" name="title" id="title" placeholder="Notes Title">
+                <textarea name="content" id="content" cols="30" rows="10" placeholder="notes go here"></textarea>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

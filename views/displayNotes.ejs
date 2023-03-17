@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/main.js" defer></script>
+    <title>note taking app</title>
+</head>
+<body>
+    <nav>
+        <a href="/notes" ><h1 id="displayTitle" data-id="<%=note._id%>"><%=note.title%></h1></a>
+        <a type="submit" form="note1" value="Submit" id="submit" class="edit">Edit</a>
+    </nav>
+
+    <section id="main-section">
+        <div class="div-1">
+           <h2>Notes</h2>
+        <ul>
+            <% allnotes.forEach( el => { %>
+                    <li class='' data-id='<%=el._id%>'>
+                        <p><%= el.title %></p>
+                        <span><button><a href="/notes" class='del'> delete</a></button> </span>
+                        <span class="lol"><a href="/notes/display/<%=el._id%>"> show note</a></span>
+                    </li>
+                <% }) %>   
+        </ul> 
+        </div>
+        <div id="note-stuff" class="div-2">
+            <div id="note1">
+                <input type="text" name="title" id="title" placeholder="Notes Title" value="<%=note.title%>">
+                <textarea name="content" id="content" cols="30" rows="10" placeholder="notes go here"><%=note.notes%></textarea>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

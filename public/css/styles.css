@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    height: 10vh;
+    background-color: lightblue !important;
+    color: white;
+    padding: 10px 10px 10px 30px;
+    font-size: 20px;
+}
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgray;
+    margin: 100px 100px 100px 100px;
+}
+.idk{
+    margin-bottom: 15px;
+}
+div h1{
+    font-size: 4em;
+}
+div p{
+    font-size: 1.5em;
+}
+div .notes-a{
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    padding: 10px;
+}
+#main-section{
+    display: flex;
+    margin: 20px;
+}
+#main-section .div-1{
+    width: 30%;
+    border-right: solid .5px black;
+    height: 100vh;
+}
+#main-section .div-2{
+    width: 70%;
+}
+.div-1 h2{
+    text-align: center;
+}
+.div-1 li p {
+    display: inline;
+    margin-right: 15px;
+}
+#note1{
+    display: flex;
+    flex-direction: column;
+}
+input,textarea{
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
+}
+/* nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+#submit{
+    height: 20px;
+    width: 40px;
+    margin: auto 10px;
+}
+#displayTitle{
+    color: white;
+}
+.lol{
+    display: none;
+}
